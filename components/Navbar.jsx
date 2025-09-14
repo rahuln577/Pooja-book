@@ -3,24 +3,26 @@ import { NavLink, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import logo from '../src/assets/logo.png';
 
-// A reusable, animated hamburger menu button component
+// Improved hamburger button with better visibility
 const AnimatedHamburgerButton = ({ isOpen, toggle }) => {
   return (
     <button
       onClick={toggle}
-      className="p-2 focus:outline-none"
+      className="p-3 focus:outline-none md:hidden" // Increased padding for better touch target
       aria-label="Toggle menu"
+      style={{ zIndex: 1000 }} // Ensure it's above other elements
     >
       <motion.svg
-        width="24"
-        height="24"
+        width="28" // Slightly larger
+        height="28"
         viewBox="0 0 24 24"
         animate={isOpen ? "open" : "closed"}
         initial={false}
+        className="text-text-light" // Explicit color
       >
         <motion.path
           fill="transparent"
-          strokeWidth="2"
+          strokeWidth="2.5" // Slightly thicker
           stroke="currentColor"
           strokeLinecap="round"
           variants={{
@@ -30,7 +32,7 @@ const AnimatedHamburgerButton = ({ isOpen, toggle }) => {
         />
         <motion.path
           fill="transparent"
-          strokeWidth="2"
+          strokeWidth="2.5"
           stroke="currentColor"
           strokeLinecap="round"
           d="M 2 12 L 22 12"
@@ -42,7 +44,7 @@ const AnimatedHamburgerButton = ({ isOpen, toggle }) => {
         />
         <motion.path
           fill="transparent"
-          strokeWidth="2"
+          strokeWidth="2.5"
           stroke="currentColor"
           strokeLinecap="round"
           variants={{
@@ -143,7 +145,7 @@ const Navbar = () => {
           to="/" 
           style={({ isActive }) => (isActive ? activeLinkStyle : undefined)} 
           onClick={() => setIsMenuOpen(false)} 
-          className="text-text-light hover:text-primary transition-colors text-glow block py-2"
+          className="text-text-light hover:text-primary transition-colors text-glow block py-3 text-lg" // Increased padding and text size
         >
           Home
         </NavLink>
@@ -153,7 +155,7 @@ const Navbar = () => {
           to="/services" 
           style={({ isActive }) => (isActive ? activeLinkStyle : undefined)} 
           onClick={() => setIsMenuOpen(false)} 
-          className="text-text-light hover:text-primary transition-colors text-glow block py-2"
+          className="text-text-light hover:text-primary transition-colors text-glow block py-3 text-lg"
         >
           Pratyangira Homa
         </NavLink>
@@ -163,7 +165,7 @@ const Navbar = () => {
           to="/about" 
           style={({ isActive }) => (isActive ? activeLinkStyle : undefined)} 
           onClick={() => setIsMenuOpen(false)} 
-          className="text-text-light hover:text-primary transition-colors text-glow block py-2"
+          className="text-text-light hover:text-primary transition-colors text-glow block py-3 text-lg"
         >
           About Us
         </NavLink>
@@ -173,7 +175,7 @@ const Navbar = () => {
           to="/contact" 
           style={({ isActive }) => (isActive ? activeLinkStyle : undefined)} 
           onClick={() => setIsMenuOpen(false)} 
-          className="text-text-light hover:text-primary transition-colors text-glow block py-2"
+          className="text-text-light hover:text-primary transition-colors text-glow block py-3 text-lg"
         >
           Contact
         </NavLink>
@@ -185,10 +187,11 @@ const Navbar = () => {
     <motion.nav
       initial={false}
       animate={isMenuOpen ? "open" : "closed"}
-      className={`sticky top-0 z-50 transition-colors duration-300 ${isScrolled || isMenuOpen ? 'bg-surface/90 backdrop-blur-md shadow-lg border-b border-primary/20' : 'bg-transparent border-b border-transparent'}`}
+      className={`sticky top-0 z-50 transition-colors duration-300 ${isScrolled || isMenuOpen ? 'bg-surface/95 backdrop-blur-md shadow-lg border-b border-primary/20' : 'bg-transparent border-b border-transparent'}`}
+      style={{ zIndex: 999 }} // Ensure navbar stays on top
     >
       <div className="container mx-auto px-6 py-2 flex justify-between items-center">
-        <Link to="/" className="flex items-center space-x-2">
+        <Link to="/" className="flex items-center space-x-2 z-10">
           <img src={logo} alt="Siddha Parampara Logo" className="w-14 h-14" />
         </Link>
 
@@ -205,7 +208,7 @@ const Navbar = () => {
         </Link>
 
         {/* --- Mobile Menu Button --- */}
-        <div className="md:hidden text-text-light">
+        <div className="md:hidden text-text-light flex items-center">
           <AnimatedHamburgerButton isOpen={isMenuOpen} toggle={() => setIsMenuOpen(!isMenuOpen)} />
         </div>
       </div>
@@ -215,24 +218,33 @@ const Navbar = () => {
         {isMenuOpen && (
           <motion.div
             variants={{
-                open: { opacity: 1, height: 'auto', transition: { duration: 0.3 } },
-                closed: { opacity: 0, height: 0, transition: { duration: 0.3 } }
+                open: { 
+                  opacity: 1, 
+                  height: 'auto', 
+                  transition: { duration: 0.3 } 
+                },
+                closed: { 
+                  opacity: 0, 
+                  height: 0, 
+                  transition: { duration: 0.3 } 
+                }
             }}
             initial="closed"
             animate="open"
             exit="closed"
-            className="md:hidden overflow-hidden"
+            className="md:hidden overflow-hidden bg-surface/95 backdrop-blur-md absolute top-full left-0 right-0 shadow-xl" // Full width and better background
+            style={{ zIndex: 998 }}
           >
             <motion.div
               variants={mobileMenuVariants}
-              className="flex flex-col items-start space-y-2 px-6 pb-6 pt-2 border-t border-primary/20"
+              className="flex flex-col items-start space-y-2 px-8 pb-8 pt-4 border-t border-primary/20" // Increased padding
             >
               {mobileNavLinks}
-              <motion.div variants={mobileLinkVariants} className="w-full">
+              <motion.div variants={mobileLinkVariants} className="w-full mt-4">
                 <Link 
                   to="/service-detail" 
                   onClick={() => setIsMenuOpen(false)} 
-                  className="block w-full text-center mt-4 bg-primary text-background font-bold py-2 px-6 rounded-full"
+                  className="block w-full text-center bg-primary text-background font-bold py-3 px-6 rounded-full text-lg" // Increased padding and text size
                 >
                   Book Homa
                 </Link>
