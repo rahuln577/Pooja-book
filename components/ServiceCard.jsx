@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import PratyangiraDeviImage from '../src/assets/pratyangira-devi.jpg';
+import PratyangiraDeviImage from '../src/assets/homa-fire.jpg';
 
 const ServiceCard = ({ service }) => {
-  const { id, name, description, price } = service;
+  const { name, description, price } = service;
 
   const cardVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -20,13 +20,12 @@ const ServiceCard = ({ service }) => {
           <img src={PratyangiraDeviImage} alt={name} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-background bg-opacity-20 group-hover:bg-opacity-40 transition-opacity duration-300"></div>
         </div>
-        <div className="p-6">
-          <h3 className="text-xl md:text-2xl font-serif font-bold text-white mb-2">{name}</h3>
-          {/* --- RESPONSIVE FIX: Replaced fixed height with line-clamp --- */}
-          <p className="text-text-dark text-sm mb-4 line-clamp-3">{description}</p>
+        <div className="p-4 sm:p-6">
+          <h3 className="text-lg sm:text-xl md:text-2xl font-serif font-bold text-white mb-2">{name}</h3>
+          <p className="text-text-dark text-sm sm:text-base mb-4 line-clamp-3">{description}</p>
           <div className="flex justify-between items-center mt-6">
-            <span className="text-lg md:text-xl font-bold text-primary">₹{price.toLocaleString('en-IN')}</span>
-            <span className="font-semibold text-primary group-hover:underline">
+            <span className="text-base sm:text-lg md:text-xl font-bold text-primary">₹{price.toLocaleString('en-IN')}</span>
+            <span className="font-semibold text-primary group-hover:underline text-sm sm:text-base">
               View Details &rarr;
             </span>
           </div>

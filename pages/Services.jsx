@@ -25,12 +25,12 @@ const Services = () => {
 
     return (
         <div className="bg-transparent min-h-screen text-text-light">
-            <div className="container mx-auto px-6 py-20">
+            <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20">
                 <motion.h1
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
-                    className="text-4xl font-serif font-bold text-white text-center mb-12"
+                    className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white text-center mb-12"
                 >
                     Pratyangira Homa
                 </motion.h1>
@@ -44,7 +44,7 @@ const Services = () => {
                         variants={{
                             visible: { transition: { staggerChildren: 0.1 } }
                         }}
-                        className="max-w-4xl mx-auto"
+                        className="max-w-md mx-auto md:max-w-2xl lg:max-w-4xl"
                     >
                         <ServiceCard service={homaService} />
                     </motion.div>
