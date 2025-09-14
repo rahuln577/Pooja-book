@@ -12,7 +12,7 @@ const Footer = () => {
           <div className="col-span-1 md:col-span-2 flex flex-col items-center md:items-start">
             <div className="flex items-center space-x-2 mb-4">
               <img src={logo} alt="Siddha Parampara Logo" className="w-14 h-14" />
-              <span className="text-2xl font-serif font-bold text-white">Siddha Parampara</span>
+              <span className="text-xl md:text-2xl font-serif font-bold text-white">Siddha Parampara</span>
             </div>
             <p className="text-text-dark max-w-md">
               A bridge to the divine energy, for your harmony and highest good.
@@ -35,7 +35,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="border-t border-surface mt-8 pt-6 text-center text-text-dark">
+        <div className="border-t border-surface mt-8 pt-6 text-center text-text-dark text-sm">
           <p>&copy; {currentYear} Siddha Parampara. All Rights Reserved.</p>
         </div>
       </div>

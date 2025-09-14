@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { fetchServices } from '../api';
 import ServiceCard from '../components/ServiceCard';
-import PratyangiraDeviImage from '../src/assets/pratyangira-devi.jpg';
+import PratyangiraDeviImage from '../src/assets/devine-energy.jpg';
 
 const Home = () => {
     const [homaService, setHomaService] = useState(null);
@@ -24,7 +24,7 @@ const Home = () => {
 
     return (
         <div className="text-text-light">
-            <section className="relative h-[70vh] md:h-[90vh] flex items-center justify-center text-white">
+            <section className="relative h-[80vh] flex items-center justify-center text-white">
                 <div className="absolute inset-0 bg-background bg-opacity-60"></div>
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
@@ -32,7 +32,8 @@ const Home = () => {
                     transition={{ duration: 0.8 }}
                     className="relative z-10 text-center p-6"
                 >
-                    <h1 className="text-4xl md:text-7xl font-serif font-bold drop-shadow-lg">Siddha Parampara</h1>
+                    {/* --- RESPONSIVE FONT SIZES --- */}
+                    <h1 className="text-4xl sm:text-5xl md:text-7xl font-serif font-bold drop-shadow-lg">Siddha Parampara</h1>
                     <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto drop-shadow-md">A bridge to the divine energy, for your harmony and highest good.</p>
                     <Link to="/service-detail">
                         <motion.button
@@ -47,7 +48,7 @@ const Home = () => {
             </section>
 
             {homaService && (
-                <section className="py-24 bg-transparent">
+                <section className="py-20 bg-transparent">
                     <div className="container mx-auto px-6">
                         <motion.h2
                             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
@@ -56,7 +57,7 @@ const Home = () => {
                         >
                             Our Sacred Offering
                         </motion.h2>
-                        <div className="max-w-4xl mx-auto">
+                        <div className="max-w-md mx-auto md:max-w-4xl">
                             <ServiceCard service={homaService} />
                         </div>
                     </div>
@@ -64,8 +65,8 @@ const Home = () => {
             )}
 
              {homaService && (
-                <section className="py-24 bg-surface/70 backdrop-blur-xl">
-                    <div className="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+                <section className="py-20 bg-surface/70 backdrop-blur-xl">
+                    <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
                          <motion.div
                             initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.7 }}

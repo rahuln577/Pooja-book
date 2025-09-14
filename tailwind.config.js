@@ -38,6 +38,7 @@ export default {
           'text-shadow': '0 0 8px rgba(251, 191, 36, 0.3), 0 0 10px rgba(255, 255, 255, 0.2)'
         }
       })
-    })
+    }),
+    require('@tailwindcss/line-clamp'),
   ],
 }

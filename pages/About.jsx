@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 import { FaUserShield, FaSeedling, FaShieldAlt } from 'react-icons/fa';
 import logo from '../src/assets/logo.png';
-import SiddhaImage from '../src/assets/siddha-thirumular.jpg';
-import EnergyImage from '../src/assets/divine-energy.jpg';
+import SiddhaImage from '../assets/siddha-thirumular.jpg';
+import EnergyImage from '../assets/divine-energy.jpg';
 
 const About = () => {
   const challenges = [
@@ -28,20 +28,17 @@ const About = () => {
             </p>
         </motion.section>
 
-        <section className="grid md:grid-cols-2 gap-16 items-center mb-24">
+        {/* --- RESPONSIVE GRID: Stacks vertically on mobile, two columns on medium screens and up --- */}
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center mb-24">
             <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.8 }}
+                initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.8 }}
             >
                 <img src={SiddhaImage} alt="Grace of Siddha Thirumular" className="rounded-2xl shadow-2xl w-full h-full object-cover"/>
             </motion.div>
             <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.8 }}
+                initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.8 }}
                 className="space-y-4"
             >
                 <h2 className="text-3xl font-serif font-bold text-white">The Path to Harmony</h2>
@@ -59,22 +56,20 @@ const About = () => {
         </section>
 
          <section className="relative py-20 bg-surface/80 backdrop-blur-xl rounded-2xl border border-primary/20">
-            <div className="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+            <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+                {/* --- Reordered for better mobile flow (text first) --- */}
                 <motion.div
-                    initial={{ opacity: 0, x: -50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 0.8 }}
-                    className="space-y-4"
+                    initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.8 }}
+                    className="space-y-4 order-2 md:order-1"
                 >
                     <h2 className="text-3xl font-serif font-bold text-white">A Lifelong Journey</h2>
                     <p>Let’s realize, connecting with the divine is not a one-time activity. It requires constant effort, devotion, and practice to reach a state of higher consciousness and inner peace. Our rituals are a powerful step on that sacred path.</p>
                 </motion.div>
                  <motion.div
-                    initial={{ opacity: 0, x: 50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 0.8 }}
+                    initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.8 }}
+                    className="order-1 md:order-2"
                 >
                     <img src={EnergyImage} alt="Constant spiritual effort" className="rounded-2xl shadow-2xl w-full h-full object-cover"/>
                 </motion.div>

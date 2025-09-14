@@ -16,15 +16,16 @@ const ServiceCard = ({ service }) => {
       className="bg-surface backdrop-blur-xl rounded-lg shadow-2xl shadow-primary/10 overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 group border border-primary/20"
     >
       <Link to={`/service-detail`}>
-        <div className="relative h-64">
+        <div className="relative h-56 sm:h-64">
           <img src={PratyangiraDeviImage} alt={name} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-background bg-opacity-20 group-hover:bg-opacity-40 transition-opacity duration-300"></div>
         </div>
         <div className="p-6">
-          <h3 className="text-2xl font-serif font-bold text-white mb-2">{name}</h3>
-          <p className="text-text-dark text-sm mb-4 h-16">{description}</p>
-          <div className="flex justify-between items-center">
-            <span className="text-xl font-bold text-primary">₹{price.toLocaleString('en-IN')}</span>
+          <h3 className="text-xl md:text-2xl font-serif font-bold text-white mb-2">{name}</h3>
+          {/* --- RESPONSIVE FIX: Replaced fixed height with line-clamp --- */}
+          <p className="text-text-dark text-sm mb-4 line-clamp-3">{description}</p>
+          <div className="flex justify-between items-center mt-6">
+            <span className="text-lg md:text-xl font-bold text-primary">₹{price.toLocaleString('en-IN')}</span>
             <span className="font-semibold text-primary group-hover:underline">
               View Details &rarr;
             </span>
