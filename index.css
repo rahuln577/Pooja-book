@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Tiro+Devanagari+Sanskrit:ital@0;1&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --- GLOBAL GALAXY BACKGROUND --- */
+body {
+  /* You can replace this URL with any high-quality, dark galaxy image you prefer */
+  background-image: url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?q=80&w=2071&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed; /* This is key for the parallax effect */
+  background-color: #0D1120; /* Fallback color from your theme */
+}
