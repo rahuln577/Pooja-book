@@ -22,7 +22,11 @@ const ServiceCard = ({ service }) => {
         </div>
         <div className="p-4 sm:p-6">
           <h3 className="text-lg sm:text-xl md:text-2xl font-serif font-bold text-white mb-2">{name}</h3>
-          <p className="text-text-dark text-sm sm:text-base mb-4 line-clamp-3">{description}</p>
+          
+          <p className="text-text-dark text-sm sm:text-base mb-4 h-20 overflow-hidden">
+            {description}
+          </p>
+
           <div className="flex justify-between items-center mt-6">
             <span className="text-base sm:text-lg md:text-xl font-bold text-primary">₹{price.toLocaleString('en-IN')}</span>
             <span className="font-semibold text-primary group-hover:underline text-sm sm:text-base">
@@ -34,4 +38,5 @@ const ServiceCard = ({ service }) => {
     </motion.div>
   );
 };
+
 export default ServiceCard;
